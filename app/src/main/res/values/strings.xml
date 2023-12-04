@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Planteria</string>
+
+    <!--    On Boarding Screen Text-->
+    <string name="skip">Skip</string>
+    <string name="plant_life_matters_too">Plant life matters too.</string>
+    <string name="take_a_snap_description">Take a snap of plant you want to discover and understand.</string>
+    <string name="magnified_view">Magnified view</string>
+</resources>
