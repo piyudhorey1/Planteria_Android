@@ -4,6 +4,264 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".activity.SignUpActivity">
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/signup_background">
+    
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_sign_up">
+    
+                <TextView
+                    android:id="@+id/txtSignUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup"
+                    android:fontFamily="@font/reemkufi_bold"
+                    android:textColor="@color/white"
+                    android:textSize="36sp"
+                    android:layout_marginTop="56sp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+    
+                <TextView
+                    android:id="@+id/txtEnterEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/enter_email"
+                    android:fontFamily="@font/reemkufi_regular"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtSignUp"
+                    />
+                
+                <EditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:paddingHorizontal="10dp"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/reemkufi_regular"
+                    android:textSize="16sp"
+                    android:background="@drawable/background_green_border_corner_8"
+                    app:layout_constraintTop_toBottomOf="@id/txtEnterEmail"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+    
+                <TextView
+                    android:id="@+id/txtEnterPass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/enter_pass"
+                    android:fontFamily="@font/reemkufi_regular"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/edtEmail"
+                    />
+    
+                <EditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/reemkufi_regular"
+                    android:textSize="16sp"
+                    android:background="@drawable/background_green_border_corner_8"
+                    app:layout_constraintTop_toBottomOf="@id/txtEnterPass"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+    
+                <TextView
+                    android:id="@+id/txtReEnterPass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/re_enter_pass"
+                    android:fontFamily="@font/reemkufi_regular"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/edtPassword"
+                    />
+    
+                <EditText
+                    android:id="@+id/edtRePassword"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/reemkufi_regular"
+                    android:textSize="16sp"
+                    android:background="@drawable/background_green_border_corner_8"
+                    app:layout_constraintTop_toBottomOf="@id/txtReEnterPass"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+                
+                <Button
+                    android:id="@+id/btnSignUp"
+                    android:layout_width="0dp"
+                    android:layout_height="47dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/background_green_gradient_corner_8"
+                    android:text="@string/signup"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/reemkufi_bold"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toBottomOf="@id/edtRePassword"
+                    app:layout_constraintStart_toStartOf="@id/edtRePassword"
+                    app:layout_constraintEnd_toEndOf="@id/edtRePassword"
+                    />
+    
+                <TextView
+                    android:id="@+id/txtOr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/or"
+                    android:textSize="17sp"
+                    android:fontFamily="@font/reemkufi_medium"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/btnSignUp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+    
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/white"
+                    android:layout_marginEnd="24dp"
+                    app:layout_constraintTop_toTopOf="@id/txtOr"
+                    app:layout_constraintBottom_toBottomOf="@id/txtOr"
+                    app:layout_constraintStart_toStartOf="@id/btnSignUp"
+                    app:layout_constraintEnd_toStartOf="@id/txtOr"
+                    />
+    
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/white"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintTop_toTopOf="@id/txtOr"
+                    app:layout_constraintBottom_toBottomOf="@id/txtOr"
+                    app:layout_constraintStart_toEndOf="@id/txtOr"
+                    app:layout_constraintEnd_toEndOf="@id/btnSignUp"
+                    />
+    
+                <TextView
+                    android:id="@+id/txtSignUpWith"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/sign_up_with"
+                    android:fontFamily="@font/reemkufi_medium"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    app:layout_constraintTop_toBottomOf="@id/txtOr"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+    
+                <ImageView
+                    android:id="@+id/imgGoogle"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginStart="70dp"
+                    android:src="@drawable/logo_google"
+                    android:padding="4dp"
+                    android:background="@drawable/background_white_corner_8"
+                    app:layout_constraintTop_toBottomOf="@id/txtSignUpWith"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+    
+                <ImageView
+                    android:id="@+id/imgApple"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/logo_apple"
+                    android:padding="4dp"
+                    android:layout_marginEnd="70dp"
+                    android:background="@drawable/background_white_corner_8"
+                    app:layout_constraintTop_toTopOf="@id/imgGoogle"
+                    app:layout_constraintBottom_toBottomOf="@id/imgGoogle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+    
+                <TextView
+                    android:id="@+id/txtAlreadyHaveAcc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="73dp"
+                    android:text="@string/already_have_account"
+                    android:fontFamily="@font/reemkufi_medium"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="45dp"
+                    app:layout_constraintTop_toBottomOf="@id/imgGoogle"
+                    />
+    
+                <TextView
+                    android:id="@+id/txtSignIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sign_in"
+                    android:fontFamily="@font/reemkufi_medium"
+                    android:textColor="@color/green_dark"
+                    android:textSize="17sp"
+                    android:layout_marginStart="3dp"
+                    app:layout_constraintTop_toTopOf="@id/txtAlreadyHaveAcc"
+                    app:layout_constraintBottom_toBottomOf="@id/txtAlreadyHaveAcc"
+                    app:layout_constraintStart_toEndOf="@id/txtAlreadyHaveAcc"
+                    />
+                
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtAlreadyHaveAcc"
+                    />
+    
+            </androidx.constraintlayout.widget.ConstraintLayout>
+    
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

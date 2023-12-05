@@ -6,4 +6,23 @@
     <string name="plant_life_matters_too">Plant life matters too.</string>
     <string name="take_a_snap_description">Take a snap of plant you want to discover and understand.</string>
     <string name="magnified_view">Magnified view</string>
+    <string name="next">Next</string>
+    <string name="daily_care_for_plants">Daily care for your plants.</string>
+    <string name="get_detailed_description">Get detailed information about the plant you see.</string>
+    <string name="detailed_view">Detailed View</string>
+    <string name="know_the_season">Know the season your plants love.</string>
+    <string name="set_up_reminders">Set up a reminders and keep your plant healthy and strong!</string>
+    <string name="clear_view">Clear View</string>
+
+<!--    Sign Up, Sign In Page-->
+    <string name="signup">Sign up</string>
+    <string name="enter_email">Enter email</string>
+    <string name="enter_pass">Enter Password</string>
+    <string name="re_enter_pass">Re-enter Password</string>
+    <string name="or">Or</string>
+    <string name="sign_up_with">Sign up with</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_in_with">Sign in with</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
 </resources>
