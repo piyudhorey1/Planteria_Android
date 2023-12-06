@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.example.planteria.R
 import com.example.planteria.databinding.ActivitySignUpBinding
 
-class SignUpActivity : AppCompatActivity() {
+class SignUpActivity : SocialLoginActivity() {
 
     lateinit var binding: ActivitySignUpBinding
 
@@ -19,6 +19,10 @@ class SignUpActivity : AppCompatActivity() {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        binding.imgGoogle.setOnClickListener {
+            signInWithGoogle()
         }
     }
 }

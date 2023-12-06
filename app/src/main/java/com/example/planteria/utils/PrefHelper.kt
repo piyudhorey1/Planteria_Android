@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 class PrefHelper(context : Context) {
 
-    private val PREFNAME = "DEGPref"
+    private val PREFNAME = "PlanteriaPref"
     private var sharedPref: SharedPreferences
     val editor: SharedPreferences.Editor
 

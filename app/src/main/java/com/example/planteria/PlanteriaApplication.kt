@@ -15,30 +15,20 @@ class PlanteriaApplication : Application() {
         private var instance: Application? = null
         private var isActive: Boolean = false
         lateinit var prefHelper: PrefHelper
-//        lateinit var firebaseAnalytics: FirebaseAnalytics
-
-
-
         var mLoadingAnimDrawable: AnimationDrawable? = null
 
         fun applicationContext(): Context {
             return instance!!.applicationContext
         }
-
     }
 
     override fun onCreate() {
         super.onCreate()
-
-// Obtain the FirebaseAnalytics instance.
-//        FirebaseApp.initializeApp(this);
-//        firebaseAnalytics = Firebase.analytics
         prefHelper = PrefHelper(this)
 
         mLoadingAnimDrawable = ResourcesCompat.getDrawable(
             resources,
             R.drawable.app_loader_animation_list, theme
         ) as AnimationDrawable?
-
     }
 }

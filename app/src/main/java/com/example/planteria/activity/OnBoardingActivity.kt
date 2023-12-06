@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.planteria.R
@@ -20,6 +21,7 @@ class OnBoardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 //        binding = ActivityOnBoardingBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_on_boarding)
+
 
         val layouts = intArrayOf(
             R.layout.activity_on_boarding_1,
