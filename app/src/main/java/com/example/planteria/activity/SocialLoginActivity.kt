@@ -1,6 +1,7 @@
 package com.example.planteria.activity
 
 import android.content.ContentValues
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -47,7 +48,7 @@ open class SocialLoginActivity : BaseActivity() {
     }
 
 
-    val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
             result ->
         if (result.resultCode == RESULT_OK) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
@@ -118,5 +119,9 @@ open class SocialLoginActivity : BaseActivity() {
             PrefHelper.USER_DETAIL,
             userDetails
         )
+
+        val intent = Intent(this, BaseActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

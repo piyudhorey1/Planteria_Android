@@ -17,9 +17,6 @@ class PlanteriaApplication : Application() {
         lateinit var prefHelper: PrefHelper
         var mLoadingAnimDrawable: AnimationDrawable? = null
 
-        fun applicationContext(): Context {
-            return instance!!.applicationContext
-        }
     }
 
     override fun onCreate() {

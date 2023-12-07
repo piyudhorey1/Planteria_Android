@@ -13,15 +13,23 @@ import com.example.planteria.databinding.ActivityOnBoardingBinding
 
 class OnBoardingActivity : AppCompatActivity() {
 
-//    lateinit var binding: ActivityOnBoardingBinding
+    lateinit var binding: ActivityOnBoardingBinding
     lateinit var adapter: OnBoardingAdapter
     lateinit var viewPager : ViewPager
 
+    var position: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        binding = ActivityOnBoardingBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_on_boarding)
+        binding = ActivityOnBoardingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
+
+        binding.textSkip.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         val layouts = intArrayOf(
             R.layout.activity_on_boarding_1,
@@ -32,7 +40,6 @@ class OnBoardingActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.viewPager)
         adapter = OnBoardingAdapter(this, layouts)
         viewPager.adapter = adapter
-
 
         val btnNext = findViewById<Button>(R.id.btnNext)
         btnNext.setOnClickListener {
@@ -46,4 +53,5 @@ class OnBoardingActivity : AppCompatActivity() {
         }
 
     }
+
 }
