@@ -6,4 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".activity.HomeActivity">
 
+
+    <FrameLayout
+        android:id="@+id/layoutOtherTabs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/layoutTabs"
+        />
+
+<!--    <View-->
+<!--        android:id="@+id/spacer"-->
+<!--        android:layout_width="16dp"-->
+<!--        android:layout_height="16dp"-->
+<!--        android:layout_marginBottom="36dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/layoutTabs"-->
+<!--        android:background="@drawable/circular_background"/>-->
+    
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/layoutTabs"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:background="@color/dark_grey"
+        app:tabIndicatorColor="@color/green_dark"
+        app:tabIndicatorAnimationMode="linear"
+        app:tabIndicatorFullWidth="false"
+        app:tabPaddingStart="5dp"
+        app:tabPaddingEnd="5dp"
+        app:tabMode="fixed"
+        android:elevation="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/imgCaptureClosed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/capture_photo_button"
+        android:elevation="10dp"
+        android:layout_gravity="center|bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/imgCaptureOpened"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/capture_photo_button_with_options"
+        android:elevation="10dp"
+        android:layout_gravity="center|bottom"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    
 </androidx.constraintlayout.widget.ConstraintLayout>

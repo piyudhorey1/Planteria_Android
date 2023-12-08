@@ -90,7 +90,7 @@ class SignInActivity : AppCompatActivity() {
 //            userDetails
 //        )
 
-        val intent = Intent(this, BaseActivity::class.java)
+        val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
         finish()
     }
