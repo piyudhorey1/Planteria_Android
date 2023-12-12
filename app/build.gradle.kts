@@ -10,21 +10,19 @@ android {
 
     defaultConfig {
         applicationId = "com.example.planteria"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
-        versionCode = 1
+        versionCode = 9
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+
+        debug{
+            buildConfigField ("String", "API_BASE_URL", "\"https://perenual.com\"")
+
         }
     }
 
@@ -55,4 +53,13 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation ("com.google.code.gson:gson:2.9.0")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.1")
+    implementation ("com.github.IslamKhSh:CardSlider:1.0.1")
+
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
 }

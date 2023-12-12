@@ -59,6 +59,7 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
 
             <EditText
+                android:id="@+id/edtSearchPlant"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:background="@drawable/background_grey_border_corner_8"
@@ -77,6 +78,42 @@
                 app:layout_constraintStart_toStartOf="@id/imgSwipe"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtUserName"
+                />
+
+            <TextView
+                android:id="@+id/txtKnowPlants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="29dp"
+                android:fontFamily="@font/reemkufi_medium"
+                android:text="@string/know_you_plants"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/edtSearchPlant"
+                app:layout_constraintStart_toStartOf="@id/edtSearchPlant"
+                />
+            
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcyImgPlants"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/txtKnowPlants"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txtKnowPlants"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/learn_about_plants"
+                android:fontFamily="@font/reemkufi_medium"
+                android:textColor="@color/white"
+                android:layout_marginTop="24dp"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/rcyImgPlants"
+                app:layout_constraintStart_toStartOf="@id/txtKnowPlants"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
         
