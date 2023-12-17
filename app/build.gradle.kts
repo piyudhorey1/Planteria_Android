@@ -55,4 +55,12 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation ("com.google.code.gson:gson:2.9.0")
+    // CameraX core library using camera2 implementation
+    implementation ("androidx.camera:camera-camera2:1.0.1")
+
+    // CameraX Lifecycle Library
+    implementation ("androidx.camera:camera-lifecycle:1.0.1")
+
+    // CameraX View class
+    implementation ("androidx.camera:camera-view:1.0.0-alpha27")
 }

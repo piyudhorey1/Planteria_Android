@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.planteria.R
 import com.example.planteria.databinding.ActivityHomeBinding
+import com.example.planteria.fragment.CaptureFragment
 import com.example.planteria.fragment.HomeFragment
 import com.google.android.material.tabs.TabLayout
 
@@ -29,12 +30,13 @@ class HomeActivity : BaseActivity() {
         binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_user).setTag(strProfile))
 
         binding.imgCaptureClosed.setOnClickListener {
-            if (binding.imgCaptureOpened.visibility == View.VISIBLE) {
-                binding.imgCaptureOpened.visibility = View.GONE
-
-            }else {
-                binding.imgCaptureOpened.visibility = View.VISIBLE
-            }
+//            if (binding.imgCaptureOpened.visibility == View.VISIBLE) {
+//                binding.imgCaptureOpened.visibility = View.GONE
+//
+//            }else {
+//                binding.imgCaptureOpened.visibility = View.VISIBLE
+//            }
+            addNewFragment(CaptureFragment.newInstance(this@HomeActivity), "", Bundle())
         }
 
         replaceSelectedFragment(HomeFragment.newInstance(this@HomeActivity))
@@ -74,5 +76,11 @@ class HomeActivity : BaseActivity() {
    private fun replaceSelectedFragment(fragment: Fragment?) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.layoutOtherTabs, fragment!!).addToBackStack(null).commit()
+    }
+
+    private fun addNewFragment(fragment: Fragment?, tag:String, bundle: Bundle) {
+        fragment?.arguments = bundle
+        supportFragmentManager.beginTransaction()
+            .add(R.id.layoutOtherTabs, fragment!!,tag).addToBackStack(null).commit()
     }
 }
