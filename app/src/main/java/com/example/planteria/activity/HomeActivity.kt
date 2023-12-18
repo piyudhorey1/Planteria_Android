@@ -76,6 +76,7 @@ class HomeActivity : BaseActivity() {
    private fun replaceSelectedFragment(fragment: Fragment?) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.layoutOtherTabs, fragment!!).addToBackStack(null).commit()
+
     }
 
     private fun addNewFragment(fragment: Fragment?, tag:String, bundle: Bundle) {
