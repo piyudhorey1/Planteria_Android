@@ -36,7 +36,7 @@ class HomeActivity : BaseActivity() {
 //            }else {
 //                binding.imgCaptureOpened.visibility = View.VISIBLE
 //            }
-            addNewFragment(CaptureFragment.newInstance(this@HomeActivity), "", Bundle())
+            replaceSelectedFragment(CaptureFragment.newInstance())
         }
 
         replaceSelectedFragment(HomeFragment.newInstance(this@HomeActivity))
@@ -79,7 +79,7 @@ class HomeActivity : BaseActivity() {
 
     }
 
-    private fun addNewFragment(fragment: Fragment?, tag:String, bundle: Bundle) {
+   fun addNewFragment(fragment: Fragment?, tag:String, bundle: Bundle) {
         fragment?.arguments = bundle
         supportFragmentManager.beginTransaction()
             .add(R.id.layoutOtherTabs, fragment!!,tag).addToBackStack(null).commit()

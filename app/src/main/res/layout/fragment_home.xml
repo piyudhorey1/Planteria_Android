@@ -105,6 +105,7 @@
                 app:layout_constraintStart_toStartOf="@id/txtKnowPlants"/>
 
             <TextView
+                android:id="@+id/txtLearnPlants"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/learn_about_plants"
@@ -115,6 +116,28 @@
                 app:layout_constraintTop_toBottomOf="@id/rcyImgPlants"
                 app:layout_constraintStart_toStartOf="@id/txtKnowPlants"
                 />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcyNamePlants"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txtLearnPlants"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toStartOf="@id/txtLearnPlants"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/popular_plants"
+                android:layout_marginTop="24dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/reemkufi_medium"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/rcyNamePlants"
+                app:layout_constraintStart_toStartOf="@id/txtKnowPlants"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         
     </ScrollView>

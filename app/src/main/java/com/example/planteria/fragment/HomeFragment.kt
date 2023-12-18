@@ -9,10 +9,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.planteria.activity.HomeActivity
 import com.example.planteria.adapter.PlantsImageHorizontalAdapter
+import com.example.planteria.adapter.PlantsNameHorizontalAdapter
 import com.example.planteria.databinding.FragmentHomeBinding
 import com.example.planteria.network.ApiInterface
 import com.example.planteria.network.RetrofitClient
-import com.example.planteria.responseModel.GetSpeciesDataResponse
+import com.example.planteria.responseModel.GetPlantsDataResponse
 import com.example.planteria.responseModel.SpeciesData
 import com.example.planteria.utils.LoadingDialogFragment
 import kotlinx.coroutines.launch
@@ -50,11 +51,11 @@ class HomeFragment : Fragment() {
 
         lifecycleScope.launch {
 
-            apiInterface.getSpeciesData().enqueue(object :
-            Callback<GetSpeciesDataResponse>{
+            apiInterface.getPlantsData().enqueue(object :
+            Callback<GetPlantsDataResponse>{
                 override fun onResponse(
-                    call: Call<GetSpeciesDataResponse>,
-                    response: Response<GetSpeciesDataResponse>
+                    call: Call<GetPlantsDataResponse>,
+                    response: Response<GetPlantsDataResponse>
                 ) {
                     mLoadingFragment.dismissAllowingStateLoss()
 
@@ -63,10 +64,11 @@ class HomeFragment : Fragment() {
                         val getPlantsData = response.body()
 
                         setHorizontalPlantsImages(getPlantsData!!)
+                        setHorizontalPlantsName(getPlantsData)
                     }
                 }
 
-                override fun onFailure(call: Call<GetSpeciesDataResponse>, t: Throwable) {
+                override fun onFailure(call: Call<GetPlantsDataResponse>, t: Throwable) {
                     mLoadingFragment.dismissAllowingStateLoss()
                 }
 
@@ -74,11 +76,21 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun setHorizontalPlantsImages(mAllPlantsData: GetSpeciesDataResponse?) {
+    private fun setHorizontalPlantsImages(mAllPlantsData: GetPlantsDataResponse?) {
 
         binding.rcyImgPlants.apply {
             layoutManager = LinearLayoutManager(homeActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = PlantsImageHorizontalAdapter(
+                homeActivity,
+                mAllPlantsData!!
+            )
+        }
+    }
+
+    private fun setHorizontalPlantsName(mAllPlantsData: GetPlantsDataResponse?) {
+        binding.rcyNamePlants.apply {
+            layoutManager = LinearLayoutManager(homeActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = PlantsNameHorizontalAdapter(
                 homeActivity,
                 mAllPlantsData!!
             )
