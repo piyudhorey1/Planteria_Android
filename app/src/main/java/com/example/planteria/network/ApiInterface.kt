@@ -12,5 +12,5 @@ interface ApiInterface {
     fun getPlantsData() : Call<GetPlantsDataResponse>
 
     @GET("/api/species/details/{plant_id}?key=sk-mORS6576a2fcdd31a3417")
-    fun getSpeciesData(@Path("plant_id") plantId: String) : Call<GetSpeciesDataResponse>
+    fun getSpeciesData(@Path("plant_id") plantId: Int) : Call<GetSpeciesDataResponse>
 }

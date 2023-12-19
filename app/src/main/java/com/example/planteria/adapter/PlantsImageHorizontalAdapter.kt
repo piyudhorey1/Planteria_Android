@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.planteria.R
@@ -13,11 +14,16 @@ import com.example.planteria.responseModel.GetPlantsDataResponse
 import com.example.planteria.responseModel.SpeciesData
 
 class PlantsImageHorizontalAdapter(private var homeActivity: HomeActivity,
-                                   private val plantsSpeciesList: GetPlantsDataResponse
+                                   private val plantsSpeciesList: GetPlantsDataResponse,
+                                   private val itemClickListener: OnItemClickListener
 ): RecyclerView.Adapter<PlantsImageHorizontalAdapter.MyViewHolder>()
 {
 
 
+
+    interface OnItemClickListener {
+        fun onItemClick(plaintId: Int)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -32,9 +38,6 @@ class PlantsImageHorizontalAdapter(private var homeActivity: HomeActivity,
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val plantsData = plantsSpeciesList.data.get(position)
         holder.bindItem(plantsData)
-        holder.mPlantImage.setOnClickListener {
-
-        }
 
     }
 
@@ -52,7 +55,17 @@ class PlantsImageHorizontalAdapter(private var homeActivity: HomeActivity,
                 // Log or handle null URL
             }
         }
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val plantId = plantsSpeciesList.data[position].id
+                    itemClickListener.onItemClick(plantId!!)
+                }
+            }
+        }
 
     }
+
 
 }

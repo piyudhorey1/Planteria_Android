@@ -1,11 +1,10 @@
 package com.example.planteria.activity
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.planteria.R
 import com.example.planteria.databinding.ActivityHomeBinding
-import com.example.planteria.fragment.CaptureFragment
 import com.example.planteria.fragment.HomeFragment
 import com.google.android.material.tabs.TabLayout
 
@@ -36,7 +35,8 @@ class HomeActivity : BaseActivity() {
 //            }else {
 //                binding.imgCaptureOpened.visibility = View.VISIBLE
 //            }
-            replaceSelectedFragment(CaptureFragment.newInstance())
+            val intent = Intent(this, CaptureImageActivity::class.java)
+            startActivity(intent)
         }
 
         replaceSelectedFragment(HomeFragment.newInstance(this@HomeActivity))
@@ -73,7 +73,7 @@ class HomeActivity : BaseActivity() {
         binding.layoutTabs.addOnTabSelectedListener(onTabSelectedListener)
     }
 
-   private fun replaceSelectedFragment(fragment: Fragment?) {
+   fun replaceSelectedFragment(fragment: Fragment?) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.layoutOtherTabs, fragment!!).addToBackStack(null).commit()
 

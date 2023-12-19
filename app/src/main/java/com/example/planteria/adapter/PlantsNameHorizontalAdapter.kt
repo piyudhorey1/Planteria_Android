@@ -13,11 +13,15 @@ import com.example.planteria.responseModel.GetPlantsDataResponse
 import com.example.planteria.responseModel.SpeciesData
 
 class PlantsNameHorizontalAdapter(private var homeActivity: HomeActivity,
-                                  private val plantsSpeciesList: GetPlantsDataResponse
+                                  private val plantsSpeciesList: GetPlantsDataResponse,
+                                  private val itemClickListener: OnItemClickListener
 ): RecyclerView.Adapter<PlantsNameHorizontalAdapter.MyViewHolder>()
 {
 
 
+    interface OnItemClickListener {
+        fun onItemClick(plaintId: Int)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -51,7 +55,15 @@ class PlantsNameHorizontalAdapter(private var homeActivity: HomeActivity,
                 // Log or handle null URL
             }
         }
-
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val plantId = plantsSpeciesList.data[position].id
+                    itemClickListener.onItemClick(plantId!!)
+                }
+            }
+        }
     }
 
 }

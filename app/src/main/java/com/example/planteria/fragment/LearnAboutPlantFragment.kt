@@ -5,55 +5,84 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.planteria.R
+import com.example.planteria.activity.HomeActivity
+import com.example.planteria.databinding.FragmentKnowAboutPlantBinding
+import com.example.planteria.databinding.FragmentLearnAboutPlantBinding
+import com.example.planteria.network.ApiInterface
+import com.example.planteria.network.RetrofitClient
+import com.example.planteria.responseModel.GetSpeciesDataResponse
+import com.example.planteria.utils.LoadingDialogFragment
+import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LearnAboutPlantFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LearnAboutPlantFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var binding: FragmentLearnAboutPlantBinding
+    lateinit var homeActivity: HomeActivity
+    var mLoadingFragment = LoadingDialogFragment()
+    private var plantId : Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_learn_about_plant, container, false)
+        binding = FragmentLearnAboutPlantBinding.inflate(layoutInflater, container, false)
+
+
+        hitGetSpeciesDataApi(plantId)
+
+        return binding.root
+    }
+
+    private fun hitGetSpeciesDataApi(plantMainId : Int) {
+        if (!mLoadingFragment.isAdded) {
+            mLoadingFragment.show(childFragmentManager, "")
+        }
+        val apiInterface = RetrofitClient.getInstance().create(ApiInterface::class.java)
+
+        apiInterface.getSpeciesData(plantMainId).enqueue(object : Callback<GetSpeciesDataResponse> {
+            override fun onResponse(
+                call: Call<GetSpeciesDataResponse>,
+                response: Response<GetSpeciesDataResponse>
+            ) {
+                mLoadingFragment.dismissAllowingStateLoss()
+                if (response.isSuccessful) {
+
+                    val speciesData = response.body()
+                    Glide
+                        .with(homeActivity.applicationContext)
+                        .load(speciesData?.defaultImage?.originalUrl)
+                        .centerCrop()
+                        .into(binding.imgRestPicture)
+                    binding.txtPlantName.setText(speciesData?.commonName)
+                    binding.txtDescription.setText(speciesData?.description)
+                    binding.txtFamily.setText(speciesData?.family)
+                    binding.txtOrigin.setText(speciesData?.origin.toString())
+                }
+            }
+
+            override fun onFailure(call: Call<GetSpeciesDataResponse>, t: Throwable) {
+                mLoadingFragment.dismissAllowingStateLoss()
+                println("Error")
+            }
+
+        })
+
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LearnAboutPlantFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(homeScreenActivity: HomeActivity, PlantId: Int) =
             LearnAboutPlantFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    homeActivity = homeScreenActivity
+                    plantId = PlantId
                 }
             }
     }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.planteria.R
 import com.example.planteria.activity.HomeActivity
 import com.example.planteria.adapter.PlantsImageHorizontalAdapter
 import com.example.planteria.adapter.PlantsNameHorizontalAdapter
@@ -82,17 +83,32 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(homeActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = PlantsImageHorizontalAdapter(
                 homeActivity,
-                mAllPlantsData!!
+                mAllPlantsData!!,
+                object : PlantsImageHorizontalAdapter.OnItemClickListener {
+                    override fun onItemClick(plaintId: Int) {
+                        openKnowAboutPlantFragment(plaintId)
+                    }
+                }
             )
         }
     }
+
+    private fun openKnowAboutPlantFragment(plantId : Int) {
+        homeActivity.replaceSelectedFragment(KnowAboutPlantFragment.newInstance(homeActivity, plantId))
+    }
+
 
     private fun setHorizontalPlantsName(mAllPlantsData: GetPlantsDataResponse?) {
         binding.rcyNamePlants.apply {
             layoutManager = LinearLayoutManager(homeActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = PlantsNameHorizontalAdapter(
                 homeActivity,
-                mAllPlantsData!!
+                mAllPlantsData!!,
+                object : PlantsNameHorizontalAdapter.OnItemClickListener {
+                    override fun onItemClick(plaintId: Int) {
+                        homeActivity.replaceSelectedFragment(LearnAboutPlantFragment.newInstance(homeActivity, plaintId))
+                    }
+                }
             )
         }
     }
