@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.planteria.R
@@ -17,6 +22,7 @@ import com.example.planteria.network.RetrofitClient
 import com.example.planteria.responseModel.GetPlantsDataResponse
 import com.example.planteria.responseModel.SpeciesData
 import com.example.planteria.utils.LoadingDialogFragment
+import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,6 +36,10 @@ class HomeFragment : Fragment() {
     lateinit var plantsImageHorizontalAdapter: PlantsImageHorizontalAdapter
     private var plantsList: MutableList<SpeciesData> = mutableListOf()
 
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var actionBarToggle: ActionBarDrawerToggle
+    private lateinit var navView: NavigationView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,8 +50,48 @@ class HomeFragment : Fragment() {
 
         hitGetAllPlantsDataApi()
 
+        actionBarToggle = ActionBarDrawerToggle(homeActivity, binding.drawerLayout, 0, 0)
+        binding.drawerLayout.addDrawerListener(actionBarToggle)
+
+        actionBarToggle.syncState()
+
+        binding.imgSwipe.setOnClickListener {
+            val isNavigationEnabled = true
+            setNavigationEnabled(isNavigationEnabled)
+        }
+
+        binding.navView.setNavigationItemSelectedListener {menuItem ->
+            when (menuItem.itemId) {
+                R.id.myHome -> {
+                    Toast.makeText(homeActivity, "My Home", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.reminder -> {
+                    Toast.makeText(homeActivity, "My Reminders", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.profile -> {
+                    Toast.makeText(homeActivity, "My Profile", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else ->  {
+                    false
+                }
+            }
+
+        }
 
         return binding.root
+    }
+
+
+    private fun setNavigationEnabled(isEnabled: Boolean) {
+        val lockMode = if (isEnabled) {
+            DrawerLayout.LOCK_MODE_UNLOCKED
+        } else {
+            DrawerLayout.LOCK_MODE_LOCKED_CLOSED
+        }
+        binding.drawerLayout.setDrawerLockMode(lockMode)
     }
 
     private fun hitGetAllPlantsDataApi() {
@@ -94,7 +144,18 @@ class HomeFragment : Fragment() {
     }
 
     private fun openKnowAboutPlantFragment(plantId : Int) {
-        homeActivity.replaceSelectedFragment(KnowAboutPlantFragment.newInstance(homeActivity, plantId))
+//        homeActivity.replaceSelectedFragment(KnowAboutPlantFragment.newInstance(homeActivity, plantId))
+        val fragmentManager = (context as AppCompatActivity).supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+
+        transaction.setCustomAnimations(
+            R.anim.fragment_enter_animation,
+            R.anim.fragment_exit_animation
+        )
+
+        transaction.replace(R.id.layoutOtherTabs, KnowAboutPlantFragment.newInstance(homeActivity, plantId))
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
 

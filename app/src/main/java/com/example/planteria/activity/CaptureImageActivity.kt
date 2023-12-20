@@ -2,6 +2,7 @@ package com.example.planteria.activity
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -19,8 +20,10 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
+import androidx.fragment.app.Fragment
 import com.example.planteria.R
 import com.example.planteria.databinding.ActivityCaptureImageBinding
+import com.example.planteria.fragment.WaterMeFragment
 import com.google.android.material.snackbar.Snackbar
 import com.google.common.util.concurrent.ListenableFuture
 import java.io.File
@@ -107,7 +110,9 @@ class CaptureImageActivity : AppCompatActivity() {
     }
 
 
-    private fun takePhoto(){
+    private fun takePhoto() {
+
+
         imageCapture?.let{
             //Create a storage location whose fileName is timestamped in milliseconds.
             val fileName = "JPEG_${System.currentTimeMillis()}"
@@ -129,8 +134,9 @@ class CaptureImageActivity : AppCompatActivity() {
                             val bitmap = BitmapFactory.decodeFile(file.absolutePath)
                             binding.capturedImage.setImageBitmap(bitmap)
                         }
-                        stopCamera()
                         Log.i(TAG,"The image has been saved in ${file.toUri()}")
+                        openFragment(WaterMeFragment())
+
                     }
 
                     override fun onError(exception: ImageCaptureException) {
@@ -144,6 +150,11 @@ class CaptureImageActivity : AppCompatActivity() {
 
                 })
         }
+    }
+
+    fun openFragment(fragment: Fragment){
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.preview,fragment).addToBackStack(null).commit()
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
