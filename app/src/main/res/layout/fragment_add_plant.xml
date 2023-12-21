@@ -3,7 +3,135 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
     tools:context=".fragment.AddPlantFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chevron_left"
+                android:layout_marginTop="62dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/txtAddHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add New Plant"
+                android:fontFamily="@font/reemkufi_bold"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btnBack"
+                app:layout_constraintBottom_toBottomOf="@id/btnBack"
+                />
+
+            <TextView
+                android:id="@+id/lblAddPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Add Photo"
+                android:fontFamily="@font/reemkufi_medium"
+                android:textColor="@color/white"
+                android:letterSpacing="0.03"
+                app:layout_constraintTop_toBottomOf="@id/txtAddHeading"
+                app:layout_constraintStart_toStartOf="@id/btnBack"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imgPlant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@id/lblAddPhoto"
+                app:layout_constraintTop_toBottomOf="@id/lblAddPhoto">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/placeholder"
+                    app:civ_circle_background_color="@color/dark_grey"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/changeProfilePicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/ic_write_circle_green"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/lblNamePlant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:text="Name of Plant"
+                android:fontFamily="@font/reemkufi_medium"
+                android:textColor="@color/white"
+                android:letterSpacing="0.03"
+                app:layout_constraintTop_toTopOf="@id/lblAddPhoto"
+                app:layout_constraintBottom_toBottomOf="@id/lblAddPhoto"
+                app:layout_constraintStart_toEndOf="@id/lblAddPhoto"
+                />
+
+            <EditText
+                android:id="@+id/edtNamePlant"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/reemkufi_medium"
+                android:textSize="11sp"
+                android:paddingHorizontal="3dp"
+                android:background="@drawable/background_grey_border_corner_8"
+                app:layout_constraintStart_toStartOf="@id/lblNamePlant"
+                app:layout_constraintTop_toBottomOf="@id/lblNamePlant"
+                />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="110dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Save Plant"
+                android:fontFamily="@font/reemkufi_medium"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:background="@drawable/background_green_gradient_corner_8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edtNamePlant"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 
 

@@ -1,0 +1,40 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="180dp"
+    android:height="180dp"
+    android:viewportWidth="180"
+    android:viewportHeight="180">
+
+  <path
+      android:pathData="M91,96m-40,0a40,40 0,1 1,80 0a40,40 0,1 1,-80 0">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:startX="71.5"
+          android:startY="68"
+          android:endX="124.48"
+          android:endY="101.16"
+          android:type="linear">
+        <item android:offset="0" android:color="#FF75E00A"/>
+        <item android:offset="1" android:color="#FF0AE0A0"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+
+  <!-- Adjusted coordinates to center the plus sign -->
+  <path
+      android:pathData="M70,96H112"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#000000"
+      android:strokeLineCap="round"/>
+
+  <!-- Adjusted coordinates to center the plus sign -->
+  <path
+      android:pathData="M91,75V117"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#000000"
+      android:strokeLineCap="round"/>
+</vector>

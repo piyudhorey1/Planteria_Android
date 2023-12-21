@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.planteria.R
 import com.example.planteria.databinding.ActivityHomeBinding
+import com.example.planteria.fragment.AddedPlantsFragment
 import com.example.planteria.fragment.HomeFragment
 import com.google.android.material.tabs.TabLayout
 
@@ -44,10 +45,14 @@ class HomeActivity : BaseActivity() {
 
                 when(tab?.tag) {
                     strHome -> {
+                        replaceSelectedFragment(HomeFragment.newInstance(this@HomeActivity))
                         tab.setIcon(R.drawable.ic_home_selected)
                     }
                     strSearch -> {
                         tab.setIcon(R.drawable.ic_grid_search_selected)
+                    }
+                    strAdd -> {
+                        replaceSelectedFragment(AddedPlantsFragment())
                     }
                 }
             }
@@ -80,7 +85,12 @@ class HomeActivity : BaseActivity() {
    fun addNewFragment(fragment: Fragment?, tag:String, bundle: Bundle) {
         fragment?.arguments = bundle
         supportFragmentManager.beginTransaction()
-            .add(R.id.layoutOtherTabs, fragment!!,tag).addToBackStack(null).commit()
+            .add(R.id.layoutOtherTabs, fragment!!,tag)
+            .setCustomAnimations(
+                R.anim.fragment_enter_animation,
+                R.anim.fragment_exit_animation
+            )
+            .addToBackStack(null).commit()
     }
 
 }

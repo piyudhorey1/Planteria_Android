@@ -74,4 +74,5 @@ dependencies {
     implementation ("com.github.orbitalsonic:Water-Wave-Animation-Android:1.0.0")
     implementation ("com.airbnb.android:lottie:6.2.0")
     implementation ("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
 }
