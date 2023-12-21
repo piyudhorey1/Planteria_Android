@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/background_home"
     android:id="@+id/drawerLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.HomeFragment">
@@ -17,13 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="316dp"
-                android:src="@drawable/background_home"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
 
             <ImageView
                 android:id="@+id/imgSwipe"
@@ -43,7 +36,7 @@
                 android:text="@string/hi_abby"
                 android:fontFamily="@font/reemkufi_bold"
                 android:textSize="18sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 app:layout_constraintTop_toTopOf="@id/imgSwipe"
                 app:layout_constraintBottom_toBottomOf="@id/imgSwipe"
                 app:layout_constraintStart_toEndOf="@id/imgSwipe"
@@ -70,7 +63,7 @@
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:hint="@string/search"
-                android:textColorHint="@color/white"
+                android:textColorHint="@color/black"
                 android:textSize="14sp"
                 android:fontFamily="@font/reemkufi_medium"
                 android:drawableStart="@drawable/ic_search"
@@ -88,7 +81,7 @@
                 android:layout_marginTop="29dp"
                 android:fontFamily="@font/reemkufi_medium"
                 android:text="@string/know_you_plants"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@id/edtSearchPlant"
                 app:layout_constraintStart_toStartOf="@id/edtSearchPlant"
@@ -112,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/learn_about_plants"
                 android:fontFamily="@font/reemkufi_medium"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_marginTop="24dp"
                 android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@id/rcyImgPlants"

@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_reminder"
         android:title="Reminder" />
     <item
+        android:id="@+id/add"
+        android:icon="@drawable/ic_add_image"
+        android:title="Add Plant" />
+    <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_user"
         android:title="Profile" />

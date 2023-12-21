@@ -43,17 +43,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
-    <ImageView
-        android:id="@+id/imgCaptureClosed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/capture_photo_button"
-        android:elevation="10dp"
-        android:layout_gravity="center|bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+<!--    <ImageView-->
+<!--        android:id="@+id/imgCaptureClosed"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/capture_photo_button"-->
+<!--        android:elevation="10dp"-->
+<!--        android:layout_gravity="center|bottom"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        />-->
 
     <ImageView
         android:id="@+id/imgCaptureOpened"

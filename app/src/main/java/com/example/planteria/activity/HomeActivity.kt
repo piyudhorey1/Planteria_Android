@@ -1,17 +1,12 @@
 package com.example.planteria.activity
 
 import android.Manifest
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.planteria.R
 import com.example.planteria.databinding.ActivityHomeBinding
 import com.example.planteria.fragment.HomeFragment
-import com.example.planteria.fragment.WaterMeFragment
 import com.google.android.material.tabs.TabLayout
 
 class HomeActivity : BaseActivity() {
@@ -20,6 +15,7 @@ class HomeActivity : BaseActivity() {
 
     var strHome:String = "home"
     var strSearch:String = "search"
+    var strAdd:String = "add"
     var strReminder:String = "reminder"
     var strProfile:String = "profile"
 
@@ -36,13 +32,10 @@ class HomeActivity : BaseActivity() {
 
         binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_home_selected).setTag(strHome))
         binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_grid_search).setTag(strSearch))
+        binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_add_image).setTag(strAdd))
         binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_reminder).setTag(strReminder))
         binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_user).setTag(strProfile))
 
-        binding.imgCaptureClosed.setOnClickListener {
-            val intent = Intent(this, CaptureImageActivity::class.java)
-            startActivity(intent)
-        }
 
         replaceSelectedFragment(HomeFragment.newInstance(this@HomeActivity))
 

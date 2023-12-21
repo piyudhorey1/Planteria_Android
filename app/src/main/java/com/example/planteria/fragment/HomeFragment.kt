@@ -12,6 +12,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.planteria.R
 import com.example.planteria.activity.HomeActivity
 import com.example.planteria.adapter.PlantsImageHorizontalAdapter
@@ -55,9 +56,14 @@ class HomeFragment : Fragment() {
 
         actionBarToggle.syncState()
 
+        homeActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         binding.imgSwipe.setOnClickListener {
-            val isNavigationEnabled = true
-            setNavigationEnabled(isNavigationEnabled)
+            if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                binding.drawerLayout.closeDrawer(GravityCompat.START)
+            } else {
+                binding.drawerLayout.openDrawer(GravityCompat.START)
+            }
         }
 
         binding.navView.setNavigationItemSelectedListener {menuItem ->
@@ -68,6 +74,10 @@ class HomeFragment : Fragment() {
                 }
                 R.id.reminder -> {
                     Toast.makeText(homeActivity, "My Reminders", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.add -> {
+                    Toast.makeText(homeActivity, "Add My Plants", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.profile -> {
