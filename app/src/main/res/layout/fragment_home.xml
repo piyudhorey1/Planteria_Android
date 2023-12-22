@@ -42,15 +42,6 @@
                 app:layout_constraintStart_toEndOf="@id/imgSwipe"
                 />
 
-            <ImageView
-                android:id="@+id/imgScan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/scan_logo"
-                android:layout_marginEnd="72dp"
-                app:layout_constraintTop_toTopOf="@id/imgSwipe"
-                app:layout_constraintBottom_toBottomOf="@id/imgSwipe"
-                app:layout_constraintEnd_toEndOf="parent"/>
 
             <EditText
                 android:id="@+id/edtSearchPlant"

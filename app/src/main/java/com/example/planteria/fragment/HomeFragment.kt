@@ -1,5 +1,6 @@
 package com.example.planteria.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,8 +14,10 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.planteria.PlanteriaApplication
 import com.example.planteria.R
 import com.example.planteria.activity.HomeActivity
+import com.example.planteria.activity.SignInActivity
 import com.example.planteria.adapter.PlantsImageHorizontalAdapter
 import com.example.planteria.adapter.PlantsNameHorizontalAdapter
 import com.example.planteria.databinding.FragmentHomeBinding
@@ -23,6 +26,7 @@ import com.example.planteria.network.RetrofitClient
 import com.example.planteria.responseModel.GetPlantsDataResponse
 import com.example.planteria.responseModel.SpeciesData
 import com.example.planteria.utils.LoadingDialogFragment
+import com.example.planteria.utils.PrefHelper
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -37,9 +41,7 @@ class HomeFragment : Fragment() {
     lateinit var plantsImageHorizontalAdapter: PlantsImageHorizontalAdapter
     private var plantsList: MutableList<SpeciesData> = mutableListOf()
 
-    private lateinit var drawerLayout: DrawerLayout
     private lateinit var actionBarToggle: ActionBarDrawerToggle
-    private lateinit var navView: NavigationView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -84,6 +86,10 @@ class HomeFragment : Fragment() {
                     Toast.makeText(homeActivity, "My Profile", Toast.LENGTH_SHORT).show()
                     true
                 }
+                R.id.logOut -> {
+                    clearUserData()
+                    true
+                }
                 else ->  {
                     false
                 }
@@ -91,17 +97,18 @@ class HomeFragment : Fragment() {
 
         }
 
+        binding.txtUserName.setText(
+            "Hi "+ PlanteriaApplication.prefHelper.getString(PrefHelper.USER_DETAIL)
+        )
+
         return binding.root
     }
 
-
-    private fun setNavigationEnabled(isEnabled: Boolean) {
-        val lockMode = if (isEnabled) {
-            DrawerLayout.LOCK_MODE_UNLOCKED
-        } else {
-            DrawerLayout.LOCK_MODE_LOCKED_CLOSED
-        }
-        binding.drawerLayout.setDrawerLockMode(lockMode)
+    private fun clearUserData() {
+        PlanteriaApplication.prefHelper.clear()
+        val intent = Intent(homeActivity, SignInActivity::class.java)
+        startActivity(intent)
+        activity?.finish()
     }
 
     private fun hitGetAllPlantsDataApi() {

@@ -32,7 +32,7 @@ class HomeActivity : BaseActivity() {
 
 
         binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_home_selected).setTag(strHome))
-        binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_grid_search).setTag(strSearch))
+//        binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_grid_search).setTag(strSearch))
         binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_add_image).setTag(strAdd))
         binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_reminder).setTag(strReminder))
         binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_user).setTag(strProfile))
@@ -87,8 +87,10 @@ class HomeActivity : BaseActivity() {
         supportFragmentManager.beginTransaction()
             .add(R.id.layoutOtherTabs, fragment!!,tag)
             .setCustomAnimations(
-                R.anim.fragment_enter_animation,
-                R.anim.fragment_exit_animation
+                R.anim.slide_up,
+                0,
+                0,
+                0
             )
             .addToBackStack(null).commit()
     }

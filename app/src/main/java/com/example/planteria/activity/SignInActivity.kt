@@ -56,11 +56,22 @@ class SignInActivity : AppCompatActivity() {
                         mLoadingFragments.dismissAllowingStateLoss()
                         Toast.makeText(this, "Signed in successfully", Toast.LENGTH_SHORT).show()
 
+//                        var userDetails = auth.currentUser!!.displayName
+//
+//                        userDetails = if (userDetails == null) ({
+//                            auth.currentUser!!.email
+//                        }).toString() else
+//                            auth.currentUser!!.displayName
+
+                        val userDetails = auth.currentUser?.displayName ?: run {
+                            auth.currentUser?.email?.substringBefore('@')
+                        }
+
                         auth.currentUser?.getIdToken(false)
                             ?.addOnSuccessListener {result ->
 
                                 val idToken = result.token
-                                saveUserDetails(idToken)
+                                saveUserDetails(idToken, userDetails)
                             }
                     } else {
                         mLoadingFragments.dismissAllowingStateLoss()
@@ -76,19 +87,19 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveUserDetails(token: String?){
+    private fun saveUserDetails(token: String?, userName: String?){
 
         PlanteriaApplication.prefHelper.putString(
             PrefHelper.TOKEN,
             "Bearer $token"
         )
 
-//        val gson = Gson()
-//        val userDetails = name + email
-//        PlanteriaApplication.prefHelper.putString(
-//            PrefHelper.USER_DETAIL,
-//            userDetails
-//        )
+        val gson = Gson()
+        val userDetails = gson.toJson(userName)
+        PlanteriaApplication.prefHelper.putString(
+            PrefHelper.USER_DETAIL,
+            userDetails
+        )
 
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
