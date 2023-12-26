@@ -24,6 +24,9 @@
         android:theme="@style/NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".activity.ArMeasureActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.CaptureImageActivity"
             android:exported="false" />
         <activity
