@@ -50,6 +50,7 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.3.0")
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.google.firebase:firebase-firestore:24.10.0")
+    implementation("com.google.ar.sceneform:core:1.17.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -67,15 +68,16 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation ("com.github.bumptech.glide:glide:4.15.1")
 
-
-    // CameraX core library using camera2 implementation
     implementation ("androidx.camera:camera-camera2:1.0.1")
 
     implementation ("androidx.camera:camera-lifecycle:1.0.1")
 
-    implementation ("androidx.camera:camera-view:1.0.0-alpha27")
     implementation ("com.github.orbitalsonic:Water-Wave-Animation-Android:1.0.0")
     implementation ("com.airbnb.android:lottie:6.2.0")
     implementation ("androidx.legacy:legacy-support-v4:1.0.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.quickbirdstudios:opencv:4.5.3.0")
+    implementation ("androidx.camera:camera-core:1.1.0-alpha01")
+    implementation ("androidx.camera:camera-camera2:1.1.0-alpha01")
+    implementation ("androidx.camera:camera-lifecycle:1.1.0-alpha01")
 }

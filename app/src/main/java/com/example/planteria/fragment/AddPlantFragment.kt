@@ -1,6 +1,7 @@
 package com.example.planteria.fragment
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.net.Uri
 import android.os.Bundle
@@ -13,6 +14,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.planteria.PlanteriaApplication
 import com.example.planteria.R
+import com.example.planteria.activity.CameraMeasureActivity
 import com.example.planteria.activity.HomeActivity
 import com.example.planteria.databinding.FragmentAddPlantBinding
 import com.example.planteria.request.PlantData
@@ -62,6 +64,11 @@ class AddPlantFragment : Fragment() {
         }
         binding.btnBack.setOnClickListener {
             parentFragmentManager.popBackStack()
+        }
+
+        binding.edtHeightPlant.setOnClickListener {
+            val intent = Intent(homeActivity, CameraMeasureActivity::class.java)
+            startActivity(intent)
         }
 
         return binding.root
