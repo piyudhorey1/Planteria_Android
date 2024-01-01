@@ -12,18 +12,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.planteria.PlanteriaApplication
 import com.example.planteria.R
-import com.example.planteria.activity.CameraMeasureActivity
+import com.example.planteria.activity.ArMeasurement
 import com.example.planteria.activity.HomeActivity
 import com.example.planteria.databinding.FragmentAddPlantBinding
 import com.example.planteria.request.PlantData
 import com.example.planteria.utils.LoadingDialogFragment
-import com.example.planteria.utils.PrefHelper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import okhttp3.internal.graal.TargetOpenJSSEPlatform
 import java.util.Calendar
 import java.util.Locale
 
@@ -66,8 +63,16 @@ class AddPlantFragment : Fragment() {
             parentFragmentManager.popBackStack()
         }
 
-        binding.edtHeightPlant.setOnClickListener {
-            val intent = Intent(homeActivity, CameraMeasureActivity::class.java)
+        binding.btnManually.setOnClickListener {
+            if (binding.edtHeightPlant.visibility == View.VISIBLE) {
+                binding.edtHeightPlant.visibility = View.GONE
+            } else {
+                binding.edtHeightPlant.visibility = View.VISIBLE
+            }
+        }
+
+        binding.btnUsingAr.setOnClickListener {
+            val intent = Intent(homeActivity, ArMeasurement::class.java)
             startActivity(intent)
         }
 
