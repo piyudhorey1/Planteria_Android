@@ -27,6 +27,9 @@
         <activity
             android:name=".activity.ArMeasurement"
             android:exported="false" />
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="required"/>
         <activity
             android:name=".activity.HomeActivity"
             android:exported="false" />
@@ -58,9 +61,6 @@
             android:name=".activity.MainActivity"
             android:exported="false" />
 
-        <meta-data
-            android:name="com.google.ar.core"
-            android:value="required" />
     </application>
 
 </manifest>
