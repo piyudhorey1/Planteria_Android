@@ -118,7 +118,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Height of Plant (metre/inches)"
+                android:text="Height of Plant (centimetres)"
                 android:fontFamily="@font/reemkufi_medium"
                 android:textColor="@color/white"
                 android:letterSpacing="0.03"

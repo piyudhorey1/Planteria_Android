@@ -14,7 +14,7 @@ import com.example.planteria.utils.LoadingDialogFragment
 import com.example.planteria.utils.PrefHelper
 import com.google.gson.Gson
 
-class SignInActivity : AppCompatActivity() {
+class SignInActivity : SocialLoginActivity() {
 
     lateinit var signInEmail: String
     lateinit var signInPassword: String
@@ -37,6 +37,9 @@ class SignInActivity : AppCompatActivity() {
 
         binding.btnSignIn.setOnClickListener {
             signInWithEmailAndPassword()
+        }
+        binding.imgGoogle.setOnClickListener {
+            signInWithGoogle()
         }
     }
 

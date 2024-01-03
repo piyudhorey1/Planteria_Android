@@ -35,7 +35,7 @@ class HomeActivity : BaseActivity() {
 //        binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_grid_search).setTag(strSearch))
         binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_add_image).setTag(strAdd))
 //        binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_reminder).setTag(strReminder))
-        binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_user).setTag(strProfile))
+//        binding.layoutTabs.addTab(binding.layoutTabs.newTab().setIcon(R.drawable.ic_user).setTag(strProfile))
 
 
         replaceSelectedFragment(HomeFragment.newInstance(this@HomeActivity))

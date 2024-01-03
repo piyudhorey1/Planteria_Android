@@ -74,18 +74,19 @@ class HomeFragment : Fragment() {
                     Toast.makeText(homeActivity, "My Home", Toast.LENGTH_SHORT).show()
                     true
                 }
-                R.id.reminder -> {
-                    Toast.makeText(homeActivity, "My Reminders", Toast.LENGTH_SHORT).show()
-                    true
-                }
+//                R.id.reminder -> {
+//                    Toast.makeText(homeActivity, "My Reminders", Toast.LENGTH_SHORT).show()
+//                    true
+//                }
                 R.id.add -> {
-                    Toast.makeText(homeActivity, "Add My Plants", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(homeActivity, "Add My Plants", Toast.LENGTH_SHORT).show()
+                    homeActivity.replaceSelectedFragment(AddPlantFragment.newInstance())
                     true
                 }
-                R.id.profile -> {
-                    Toast.makeText(homeActivity, "My Profile", Toast.LENGTH_SHORT).show()
-                    true
-                }
+//                R.id.profile -> {
+//                    Toast.makeText(homeActivity, "My Profile", Toast.LENGTH_SHORT).show()
+//                    true
+//                }
                 R.id.logOut -> {
                     clearUserData()
                     true

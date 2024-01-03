@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.planteria.PlanteriaApplication
 import com.example.planteria.R
+import com.example.planteria.fragment.HomeFragment
 import com.example.planteria.utils.PrefHelper
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -23,6 +24,7 @@ open class SocialLoginActivity : BaseActivity() {
 
     lateinit var auth: FirebaseAuth
     lateinit var googleSignInClient: GoogleSignInClient
+    lateinit var homeActivity: HomeActivity
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -114,14 +116,15 @@ open class SocialLoginActivity : BaseActivity() {
         )
 
         val gson = Gson()
-        val userDetails = name + email
+        val userDetails = name
         PlanteriaApplication.prefHelper.putString(
             PrefHelper.USER_DETAIL,
             userDetails
         )
 
-        val intent = Intent(this, BaseActivity::class.java)
+        val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
         finish()
+
     }
 }
