@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "995502664442",
-    "project_id": "planteria-mobile",
-    "storage_bucket": "planteria-mobile.appspot.com"
+    "project_number": "57345569944",
+    "project_id": "planteria-mobile-eb19d",
+    "storage_bucket": "planteria-mobile-eb19d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:995502664442:android:81455e85687d8fccbff743",
+        "mobilesdk_app_id": "1:57345569944:android:1c291a2e84e47a58814ced",
         "android_client_info": {
           "package_name": "com.example.planteria"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "995502664442-if4pc18vvev3h17bq4r8m4rg5mu65plb.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCOsJiR4GcWvuhhSIV2CxIGQfv32Dibxw8"
+          "current_key": "AIzaSyB2Uw1n4VM7Xd_CMjNwj0AX4khxsv8CLyw"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "995502664442-if4pc18vvev3h17bq4r8m4rg5mu65plb.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
